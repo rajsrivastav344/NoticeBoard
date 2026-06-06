@@ -38,8 +38,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         data: {
           title: (title as string).trim(),
           body: (body as string).trim(),
-          category: (category as string) ?? "General",
-          priority: (priority as string) ?? "Normal",
+          category: (category ?? "General") as "Exam" | "Event" | "General",
+          priority: (priority ?? "Normal") as "Normal" | "Urgent",
           publishDate: new Date(publishDate as string),
           imageUrl: imageUrl ? (imageUrl as string).trim() : null,
         },
